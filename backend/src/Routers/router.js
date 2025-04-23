@@ -1,0 +1,10 @@
+import express from 'express';
+import { home } from '../Control/controllers.js';  
+
+const router = express.Router();
+
+router.get('/home', home);
+
+
+
+export default router;

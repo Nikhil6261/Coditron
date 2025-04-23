@@ -1,0 +1,25 @@
+form{
+
+margin-top: 10rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+flex-direction: column;
+}
+
+input{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    
+    width: 20rem;
+    height: 2rem;
+background-color: aqua;
+}
+
+button{
+margin-top: 
+1rem;
+    margin-left: 7rem;
+    width: 10rem;
+    padding:  1rem;
+}
