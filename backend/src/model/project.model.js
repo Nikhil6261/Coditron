@@ -1,26 +1,22 @@
-import mongoose, { Types } from "mongoose";
+import mongoose from "mongoose";
 
-
-const projectSchema = mongoose.model({
-
-
-    name:{
-        type:String,
-        required:[true , 'prject name is required'],
+const projectSchema = new mongoose.Schema({
+    projectName: {
+        type: String,
+        required: [true, 'Project name is required'],
     },
-    code:{
-        type:String,
-        default:"",
+    code: {
+        type: String,
+        default: "",
     },
-    review:{
-        type:String,
-        default:"",
+    review: {
+        type: String,
+        default: "",
     }
-},{
-    timestamps:true
-}) 
+}, { timestamps: true
+    
+ });
 
+const ProjectModel = mongoose.model('Project', projectSchema);
 
-const projectmodel = mongoose.Schema('project' ,projectSchema)
- 
-export default projectmodel
+export default ProjectModel;

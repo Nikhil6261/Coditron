@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-
-
 const msgschema = mongoose.Schema({
 
     project:{

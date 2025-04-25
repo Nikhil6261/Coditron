@@ -1,10 +1,11 @@
 import express from 'express';
-import { home } from '../Control/controllers.js';  
+import { create ,show} from '../Control/controllers.js';  
 
 const router = express.Router();
 
-router.get('/home', home);
+router.post('/create', create );
 
+router.get('/show', show);
 
 
 export default router;

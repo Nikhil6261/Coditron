@@ -1,15 +1,28 @@
 import React from 'react'
 import './create.css'
 import { useState } from 'react'
-
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 const CreateProject = () => {
 
-    const [project , setproject] =  useState(null)
+    const [projectName , setproject] =  useState(null)
 
+const navigate = useNavigate();
 
-    function handle(e){
+ function handle(e){
 e.preventDefault()
+
+ axios.post('http://localhost:3000/project/create',{projectName}).then(()=>{
+
+     navigate('/');
+ }).catch(()=>{
+    console.log("not found");
+    
+ })
+
+
     }
+
 
     return (
         <div>
