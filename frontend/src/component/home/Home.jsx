@@ -13,22 +13,16 @@ const Home = () => {
     const [project, setproject] = useState([])
 
 
-
-    let  getdata = async ()=>{
-        const  res  = await axios.get('http://localhost:3000/project/show')
-        
+    let getdata = async () => {
+        const res = await axios.get('http://localhost:3000/project/show');
         setproject(res.data);
 
-project.map((e)=>{
-    console.log(e.data);
-})
     }
-  
-  useEffect(  () =>  {
-    getdata()
-})
 
-    
+    useEffect(() => {
+        getdata();
+    }, []);
+
 
     return (
         <main className='home' >
@@ -37,21 +31,17 @@ project.map((e)=>{
                 <button type="button" className='btn' onClick={() => navigate('/create')}> submit</button>
             </section>
 
-            <section className='project.data'>
 
-
-                {project.length == 0 ? <div> { "empty :" + project.length  }</div> : 
-                    project.map( (project) =>{
-
-                        return (<div className='data'>
-                            <h1>{project.name}</h1> 
-                        </div>)
-
-                    })
-
-                }
-
-
+            <section className='project-data'>
+                {project.length === 0 ? (
+                    <div>{"empty: " + project.length}</div>
+                ) : (
+                    project.map((item, index) => (
+                        <div className='data' key={index}>
+                            <h1>{item.projectName}</h1>
+                        </div>
+                    ))
+                )}
             </section>
 
 

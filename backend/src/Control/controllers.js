@@ -20,7 +20,12 @@ export const create = async (req,res)=>{
 
 export const show = async (req,res)=>{
 
-    const getproject = await ProjectModel.find()
-    
-    return getproject;  
+    try{
+
+        const getproject = await ProjectModel.find();
+        res.status(200).json(getproject);
+    }
+    catch(err){
+        res.status(401).json({massage:  "failed to fetch the data ", err: err.massage})
+    }
 }

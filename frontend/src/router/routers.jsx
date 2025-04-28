@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from '../component/home/Home'
 import Create from '../component/create/CreateProject'
 
+import Project from '../component/project/Project'
+
 
 const AppRoutes = () => {
     return (
@@ -10,8 +12,9 @@ const AppRoutes = () => {
             <Routes>
 
                 <Route path='/' element={<Home />} />
-                
                 <Route path='/create' element={<Create  />} />
+
+                <Route path='/project' element={<Project/>} />
             
             </Routes>
         </Router>
