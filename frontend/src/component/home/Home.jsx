@@ -28,7 +28,7 @@ const Home = () => {
         <main className='home' >
             <section className='home-a'>
                 <h1>MY PROJECT</h1>
-                <button type="button" className='btn' onClick={() => navigate('/create')}> submit</button>
+                <button type="button" className='btn' onClick={() => navigate('/create')}> New Project  </button>
             </section>
 
 
@@ -37,8 +37,11 @@ const Home = () => {
                     <div>{"empty: " + project.length}</div>
                 ) : (
                     project.map((item, index) => (
-                        <div className='data' key={index}>
-                            <h1>{item.projectName}</h1>
+
+                        <div className='data' key={index} >
+
+                            <button onClick={()=>{ navigate('/project/ ' + project._id ) }} className='btn-project'> {item.projectName}</button>
+                        
                         </div>
                     ))
                 )}
