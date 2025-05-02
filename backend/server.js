@@ -22,6 +22,12 @@ const io = new Server(server, {
 io.on('connection' ,(socket) =>{
     console.log('new client ');
 
+
+    socket.on('message',(message)=>{    
+    console.log(message);
+    
+    })
+
     socket.on('disconnect', ()=>{
         console.log('clint disconnect');
         

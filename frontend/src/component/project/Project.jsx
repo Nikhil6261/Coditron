@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import '../project/project.css'
-import io from 'socket.io-client'
+import {  io as socketIo } from 'socket.io-client'
 
 const Project = () => {
 
@@ -9,15 +9,28 @@ const Project = () => {
     const [message, setMessage] = useState([])
     const [input, setinput] = useState("")
 
-function handelmessage (){
-    setMessage((prev) =>{ 
-        return [...prev , input]
-    })
+    const [socket, setsocket] = useState(null)
 
-    setinput("")
+    function handelmessage() {
+
+        setMessage((prev) => {
+        
+            return [...prev, input]
+        })
+
+        setinput("")
+
+        socket.emit('message' , input)
+
 }
+ 
     useEffect(() => {
-        io('http://localhost:3000')
+        const io = socketIo('http://localhost:3000')
+
+
+        setsocket(io)
+        // console.log(socket);
+        
     }, [])
 
     return (
@@ -47,15 +60,15 @@ function handelmessage (){
                     <div className='chat-box'>
 
                         <input type="text"
-                        className='chat-type'
-                        placeholder='write any u want' 
-                        value= {input}
-                        onChange={ (e)=>{ setinput( e.target.value )}}
+                            className='chat-type'
+                            placeholder='write any u want'
+                            value={input}
+                            onChange={(e) => { setinput(e.target.value) }}
                         />
-                    
-                  
-                          <button className='send-button' onClick={ handelmessage}> <i class="ri-send-plane-2-fill"></i> </button>
-                    
+
+
+                        <button className='send-button' type='submit' onClick={handelmessage}> <i className="ri-send-plane-2-fill"></i> </button>
+
                     </div>
 
 
