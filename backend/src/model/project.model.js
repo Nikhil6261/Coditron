@@ -7,11 +7,11 @@ const projectSchema = new mongoose.Schema({
     },
     code: {
         type: String,
-        default: "",
+        default:true,
     },
     review: {
         type: String,
-        default: "",
+        default: true,
     }
 }, { timestamps: true
     

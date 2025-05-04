@@ -21,7 +21,14 @@ const Home = () => {
 
     useEffect(() => {
         getdata();
+        
+
+        
     }, []);
+    
+    function navigateToProject(projectId) {
+        navigate(`/project/${projectId}`)
+    }
 
 
     return (
@@ -33,6 +40,8 @@ const Home = () => {
 
 
             <section className='project-data'>
+
+
                 {project.length === 0 ? (
                     <div>{"empty: " + project.length}</div>
                 ) : (
@@ -40,8 +49,9 @@ const Home = () => {
 
                         <div className='data' key={index} >
 
-                            <button onClick={()=>{ navigate('/project/ ' + project._id ) }} className='btn-project'> {item.projectName}</button>
+                            <div  onClick={() => { navigateToProject(item._id) }}  className="btn-project"> {item.projectName} </div>
                         
+                         
                         </div>
                     ))
                 )}
